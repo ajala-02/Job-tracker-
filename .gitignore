@@ -1,0 +1,12 @@
+# Local SQLite databases created while running the project
+*.db
+*.sqlite
+*.sqlite3
+
+# SQLite sidecar files
+*-journal
+*-wal
+*-shm
+
+# macOS metadata
+.DS_Store
