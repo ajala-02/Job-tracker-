@@ -14,23 +14,16 @@ It is tailored to a final-year ECE student applying to jobs and postgraduate pro
 - Automatically audit every genuine application-status change with a SQLite trigger.
 - Find active applications needing follow-up after 14 days.
 - Compare pass rates for completed interview types.
+## Application Lifecycle
+
+![Application Lifecycle](images/application-lifecycle.png)
 
 ## Database design
 
 `applications` is the central table. Supporting tables avoid repeated data: a skill or contact can be associated with many applications, while each interview, document, and audit record belongs to one application.
 
-```mermaid
-erDiagram
-    COMPANIES ||--o{ APPLICATIONS : has
-    COMPANIES ||--o{ CONTACTS : employs_or_hosts
-    APPLICATIONS ||--o{ INTERVIEWS : includes
-    APPLICATIONS ||--o{ DOCUMENTS : uses
-    APPLICATIONS ||--o{ STATUS_HISTORY : records
-    APPLICATIONS ||--o{ APPLICATION_CONTACTS : links
-    CONTACTS ||--o{ APPLICATION_CONTACTS : links
-    APPLICATIONS ||--o{ APPLICATION_SKILLS : requires
-    SKILLS ||--o{ APPLICATION_SKILLS : categorizes
-```
+![Database Architecture](images/database-architecture.png)
+
 
 ## Project structure
 
